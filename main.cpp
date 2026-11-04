@@ -11,25 +11,28 @@ bool FileExists(const char* FilePath)
 int main()
 {	
 	std::string InputFile;
+	HexDump* app;
 
 	while (true)
 	{
-		std::cout << "Please, input filepath: " << std::endl;
+		std::cout << "Please, input filepath: ";
 		std::getline(std::cin, InputFile);
 		if (InputFile.empty())
 		{
-			std::cout << "Please, input non-empty filepath" << std::endl;
+			std::cout << "Please, input non-empty filepath!" << std::endl;
 		}
 
 		if (FileExists(InputFile.c_str()))
-			std::cout << "File doesn't exist, check validility of path" << std::endl;
-		else
 		{
-			HexDump* app = new HexDump(InputFile.c_str());
-
+			app = new HexDump(InputFile.c_str());
+			app->Model();
 			delete app;
 		}
-			break;
+		else
+		{
+			std::cout << "File doesn't exist, check validility of path!" << std::endl;
+		}
+
 	}
 
 	

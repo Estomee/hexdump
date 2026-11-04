@@ -11,15 +11,15 @@ class HexDump {
 
 private: 
 	const char* _FileName;
-	const long _MemBlock = 0;
-	unsigned char _Buffer[16];
+	uint16_t _MemBlock = 0;
+	unsigned char _Buffer[16] = {0};
 	int _NumBytesTrav = 0;
-	int _FileSize = 0;
+	size_t _FileSize = 0;
+	size_t _SizeOfLastString = 0;
 	
 
 public:
 	
 	HexDump(const char* FileName);
 	void Model();
-	void PrintDump();
 };
